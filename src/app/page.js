@@ -52,6 +52,10 @@ export default function Home() {
     document.addEventListener('mozvisibilitychange', onVisibilityChanged, false);
     document.addEventListener('webkitvisibilitychange', onVisibilityChanged, false);
     document.addEventListener('msvisibilitychange', onVisibilityChanged, false);
+    document.addEventListener('touchmove', function(event) {
+      event.preventDefault();
+  }, { passive: false });
+
 
     // Register Service Worker
     if ('serviceWorker' in navigator) {
@@ -64,7 +68,8 @@ export default function Home() {
         });
     }
     
-    
+
+  
 
 
     // Cleanup function
@@ -75,6 +80,7 @@ export default function Home() {
       document.removeEventListener('webkitvisibilitychange', onVisibilityChanged);
       document.removeEventListener('msvisibilitychange', onVisibilityChanged);
       document.querySelectorAll('[src^="/emoji-squeeze/"]').forEach(script => script.remove());
+      
     };
   }, []);
 
