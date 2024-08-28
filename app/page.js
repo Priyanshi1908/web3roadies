@@ -1,9 +1,22 @@
 "use client";
 
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
-
+import Script from "next/script";
 export default function Home() {
+
+  const [webapp, setWebapp] = useState(null);
+  useEffect(() => {
+    if (window.Telegram && Telegram.WebApp) {
+      console.log("Telegram Web App API is available");
+      Telegram.WebApp.ready();
+      Telegram.WebApp.expand();
+      setWebapp(Telegram.WebApp);
+    } else {
+      console.error("Telegram Web App API is not available.");
+    }
+  }, []);
+
   useEffect(() => {
     // Function to load external scripts
     const loadScripts = () => {
@@ -119,6 +132,11 @@ export default function Home() {
           `}
         </style>
       </Head>
+      <Script
+        src="https://telegram.org/js/telegram-web-app.js"
+        strategy="beforeInteractive" // Ensure the script is loaded before any user interaction
+        onLoad={() => console.log("Telegram script loaded successfully")}
+      />
       <div id="fb-root"></div>
       <div id="c2canvasdiv">
         <canvas id="c2canvas" width="540" height="960">
