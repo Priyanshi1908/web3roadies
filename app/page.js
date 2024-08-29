@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Script from "next/script";
+import BottomBar from '../components/BottomBar'; 
+import Header from '../components/Header';
 export default function Home() {
 
   const [webapp, setWebapp] = useState(null);
@@ -87,6 +89,7 @@ export default function Home() {
 
     // Cleanup function
     return () => {
+
       window.removeEventListener('resize', resizeCanvas);
       document.removeEventListener('visibilitychange', onVisibilityChanged);
       document.removeEventListener('mozvisibilitychange', onVisibilityChanged);
@@ -99,6 +102,7 @@ export default function Home() {
 
   return (
     <>
+    <Header/>
       <Head>
         <meta charset="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -139,7 +143,7 @@ export default function Home() {
       />
       <div id="fb-root"></div>
       <div id="c2canvasdiv">
-        <canvas id="c2canvas" width="540" height="960">
+        <canvas id="c2canvas" width="540" height="100vh">
           Your browser does not appear to support HTML5. Try upgrading your browser to the latest version. <a href="http://www.whatbrowser.org">What is a browser?</a><br /><br />
           <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx">Microsoft Internet Explorer</a><br />
           <a href="http://www.mozilla.com/firefox/">Mozilla Firefox</a><br />
@@ -148,6 +152,9 @@ export default function Home() {
           <a href="http://www.google.com/chromeframe">Google Chrome Frame for Internet Explorer</a><br />
         </canvas>
       </div>
+      
+      <BottomBar /> 
+
     </>
   );
 }

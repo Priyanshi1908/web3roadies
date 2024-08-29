@@ -2,6 +2,113 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  /* background-image: url('/bg3.jpg'); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(15, 0, 42);
+}
+
+
+
+/* In your global CSS or a component-specific CSS module */
+@media (max-width: 500px) {
+  .chip-container img {
+    transform: translate(550%, -0%); /* Reset transform for mobile */
+    width: 60px; /* Adjust size for mobile */
+  }
+
+  .chip-count {
+    left: 70%; /* Adjust left position for mobile */
+    transform: translate(70%, -20%); /* Adjust transform for mobile */
+  }
+}
+
+@media (max-width: 420px) {
+  .chip-container img {
+    transform: translate(530%, -0%); /* Reset transform for mobile */
+    width: 60px; /* Adjust size for mobile */
+  }
+
+  .chip-count {
+    left: 70%; /* Adjust left position for mobile */
+    transform: translate(54%, -20%); /* Adjust transform for mobile */
+  }
+}
+
+@media (max-width: 390px) {
+  .chip-container img {
+    transform: translate(500%, -0%); /* Reset transform for mobile */
+    width: 60px; /* Adjust size for mobile */
+  }
+
+  .chip-count {
+    left: 70%; /* Adjust left position for mobile */
+    transform: translate(30%, -20%); /* Adjust transform for mobile */
+  }
+}
+
+
+@keyframes blinking {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
+
+/* body.light-theme {
+  font-family: Arial, sans-serif;
+  background-image: url('/bg.png');
+  background-size: 200%;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #1C404E;
+} */
+/* 
+body.dark-theme {
+  font-family: Arial, sans-serif;
+  background-color: green;
+  background-size: 160%;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+} */
+
+#__next {
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* 
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -30,4 +137,4 @@ body {
   .text-balance {
     text-wrap: balance;
   }
-}
+} */
